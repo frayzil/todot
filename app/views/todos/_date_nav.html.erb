@@ -8,13 +8,13 @@
   <%= link_to date_path(date: date - 3.months), id: 'prev-quarter', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_double_left' %>
   <% end %>
-  <%= link_to date_path(date: date - 1.month), id: 'prev-month', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date - 1.month), id: 'prev-month', style: 'color: transparent;', data: { target: 'revealable.colorable keyboard-navigation.shiftLeft' } do %>
     <%= render 'icons/chevron_left' %>
   <% end %>
-  <%= link_to date_path(date: date - 1.week), id: 'prev-week', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date - 1.week), id: 'prev-week', style: 'color: transparent;', data: { target: 'revealable.colorable keyboard-navigation.altLeft' } do %>
     <%= render 'icons/chevron_double_left' %>
   <% end %>
-  <%= link_to date_path(date: date.prev_day), id: 'prev-day', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date.prev_day), id: 'prev-day', style: 'color: transparent;', data: { target: 'revealable.colorable keyboard-navigation.left' } do %>
     <%= render 'icons/chevron_left' %>
   <% end %>
 
@@ -22,13 +22,13 @@
   <span id="this-day"><%= date.strftime('%e %a') %></span>
   <span id="this-year"><%= date.strftime('%Y') %></span>
 
-  <%= link_to date_path(date: date.next_day), id: 'next-day', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date.next_day), id: 'next-day', style: 'color: transparent;', data: { target: 'revealable.colorable keyboard-navigation.right' } do %>
     <%= render 'icons/chevron_right' %>
   <% end %>
-  <%= link_to date_path(date: date + 1.week), id: 'next-week', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date + 1.week), id: 'next-week', style: 'color: transparent;', data: { target: 'revealable.colorable keyboard-navigation.altRight' } do %>
     <%= render 'icons/chevron_double_right' %>
   <% end %>
-  <%= link_to date_path(date: date + 1.month), id: 'next-month', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date + 1.month), id: 'next-month', style: 'color: transparent;', data: { target: 'revealable.colorable keyboard-navigation.shiftRight' } do %>
     <%= render 'icons/chevron_right' %>
   <% end %>
   <%= link_to date_path(date: date + 3.months), id: 'next-quarter', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>

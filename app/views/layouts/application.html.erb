@@ -4,7 +4,10 @@
     <%= render 'shared/head' %>
   </head>
 
-  <body>
+  <body
+    data-controller="keyboard-navigation"
+    data-action="keyup->keyboard-navigation#navigate"
+  >
     <%= render 'shared/navbar' %>
     <%= render 'shared/notices' %>
 
