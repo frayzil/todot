@@ -5,20 +5,22 @@
   class="todo-row <%= todo.completed_at? ? 'todo-row-completed' : 'todo-row-incomplete' %>"
 >
   <div style="display: flex; flex-direction: row; align-items: center; margin-left: -18px;">
-    <div class="handle" style="cursor: grab; color: transparent; height: 30px; width: 30px; min-width: 30px;" data-target="revealable.colorable">
-      <%= render 'icons/three_dots_vertical' %>
-    </div>
-    <span class="todo-title" style="flex-grow: 1;">
-      <%= todo.title %>
-      <% if !todo.completed_at? %>
-        <br>
-        <% if (Time.current..4.hours.from_now).cover? todo.due_at %>
-          <span class="due-in-time <%= due_in_less_than_class(todo) %>">due in <%= time_ago_in_words(todo.due_at) %></span>
-        <% elsif (1.hour.ago..Time.current).cover? todo.due_at %>
-          <span class="due-in-time <%= overdue_ago_class(todo) %>">overdue <%= time_ago_in_words(todo.due_at) %> ago</span>
+    <div class="handle" style="cursor: grab; display: flex; align-items: center; flex-grow: 1;">
+      <span data-target="revealable.colorable" style="color: transparent; display: flex; align-items: center;">
+        <%= render 'icons/three_dots_vertical' %>
+      </span>
+      <span class="todo-title" style="flex-grow: 1;">
+        <%= todo.title %>
+        <% if !todo.completed_at? %>
+          <br>
+          <% if (Time.current..4.hours.from_now).cover? todo.due_at %>
+            <span class="due-in-time <%= due_in_less_than_class(todo) %>">due in <%= time_ago_in_words(todo.due_at) %></span>
+          <% elsif (1.hour.ago..Time.current).cover? todo.due_at %>
+            <span class="due-in-time <%= overdue_ago_class(todo) %>">overdue <%= time_ago_in_words(todo.due_at) %> ago</span>
+          <% end %>
         <% end %>
-      <% end %>
-    </span>
+      </span>
+    </div>
     <%= button_tag 'edit',
                    class: 'btn btn-link btn-sm',
                    style: 'visibility: hidden;',
