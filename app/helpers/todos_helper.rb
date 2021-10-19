@@ -36,6 +36,8 @@ module TodosHelper
         output = output.sub $&, "><i class=\"fab fa-github\"></i><"
       elsif matches[3].include? 'slack'
         output = output.sub $&, "><i class=\"fab fa-slack\"></i><"
+      else
+        output = output.sub $&, "><i class=\"fas fa-external-link-alt\"></i><"
       end
     end
 
