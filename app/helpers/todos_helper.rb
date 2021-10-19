@@ -25,6 +25,20 @@ module TodosHelper
       output = output.sub $&, "<a target=\"_blank\" href=\"#{$&}\">#{$&}</a>"
     end
 
-    output.html_safe
+    output
+  end
+
+  def iconize(text)
+    output = text
+
+    text.scan(/>#{URI::DEFAULT_PARSER.make_regexp}</) do |matches|
+      if matches[3].include? 'github'
+        output = output.sub $&, "><i class=\"fab fa-github\"></i><"
+      elsif matches[3].include? 'slack'
+        output = output.sub $&, "><i class=\"fab fa-slack\"></i><"
+      end
+    end
+
+    output
   end
 end
