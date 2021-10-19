@@ -17,4 +17,14 @@ module TodosHelper
   def overdue_ago_class(todo)
     'overdue-less-than-one-hour-ago'
   end
+
+  def linkize(text)
+    output = text
+
+    text.scan(URI::DEFAULT_PARSER.make_regexp) do |_matches|
+      output = output.sub $&, "<a target=\"_blank\" href=\"#{$&}\">#{$&}</a>"
+    end
+
+    output.html_safe
+  end
 end

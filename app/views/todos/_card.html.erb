@@ -10,7 +10,7 @@
         <%= render 'icons/three_dots_vertical' %>
       </span>
       <span class="todo-title" style="flex-grow: 1;">
-        <%= todo.title %>
+        <%= linkize todo.title %>
         <% if !todo.completed_at? %>
           <br>
           <% if (Time.current..4.hours.from_now).cover? todo.due_at %>
